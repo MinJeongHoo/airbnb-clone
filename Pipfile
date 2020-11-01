@@ -10,6 +10,8 @@ black = "*"
 [packages]
 django = "==2.2.5"
 pillow = "*"
+black = "*"
+django-countries = "*"
 
 [requires]
 python_version = "3.7"
