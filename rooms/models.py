@@ -85,13 +85,16 @@ class Room(core_models.TimeStampedModel):
         return self.name
 
     def save(self, *args, **kwargs):
-        """first word uppercase"""
+        """first word uppercasez"""
         self.city = str.capitalize(self.city)
-        super().save(*args, **kwargs)  ##call real save method
+        super().save(*args, **kwargs)
 
     def total_rating(self):
         all_reviews = self.reviews.all()
-        all_rating = []
-        for review in all_reviews:
-            all_rating.append(review.rating_average())
-        return all_rating / len(all_reviews)
+        all_rating = 0
+        if len(all_reviews) > 0:
+            for review in all_reviews:
+                all_rating += review.rating_average()
+            return all_rating / len(all_reviews)
+        else:
+            return 0

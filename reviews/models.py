@@ -5,15 +5,19 @@ from core import models as core_models
 class Review(core_models.TimeStampedModel):
     """Review Model Definition"""
 
-    review = models.TimeField()
+    review = models.IntegerField()
     accuracy = models.IntegerField()
     communitcation = models.IntegerField()
     cleanlines = models.IntegerField()
     location = models.IntegerField()
-    check_in = models.IntegerField()
+    check_in = models.TimeField()
     value = models.IntegerField()
-    user = models.ForeignKey("users.User", on_delete=models.CASCADE)
-    room = models.ForeignKey("rooms.Room", on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        "users.User", related_name="reviews", on_delete=models.CASCADE
+    )
+    room = models.ForeignKey(
+        "rooms.Room", related_name="reviews", on_delete=models.CASCADE
+    )
 
     def __str__(self):
         return f"{self.review} - {self.room}"
@@ -24,7 +28,7 @@ class Review(core_models.TimeStampedModel):
             + self.communitcation
             + self.cleanlines
             + self.location
-            + self.check_in
+            + self.review
             + self.value
         ) / 6
         return round(avg, 2)
