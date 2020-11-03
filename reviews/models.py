@@ -5,12 +5,12 @@ from core import models as core_models
 class Review(core_models.TimeStampedModel):
     """Review Model Definition"""
 
-    review = models.IntegerField()
+    review = models.TextField()
     accuracy = models.IntegerField()
     communitcation = models.IntegerField()
     cleanlines = models.IntegerField()
     location = models.IntegerField()
-    check_in = models.TimeField()
+    check_in = models.IntegerField()
     value = models.IntegerField()
     user = models.ForeignKey(
         "users.User", related_name="reviews", on_delete=models.CASCADE
