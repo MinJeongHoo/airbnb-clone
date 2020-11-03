@@ -113,3 +113,8 @@ media/
 # **/migrations/**
 # !**/migrations
 # !**/migrations/__init__.py
+
+
+#Mac
+.DS_Store
+uploads/

@@ -134,3 +134,9 @@ STATIC_URL = "/static/"
 
 
 AUTH_USER_MODEL = "users.User"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+
+
+"""앞에 /붙히고 절대경로로 변경"""
+MEDIA_URL = "/media/"
