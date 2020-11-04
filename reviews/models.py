@@ -28,7 +28,7 @@ class Review(core_models.TimeStampedModel):
             + self.communitcation
             + self.cleanlines
             + self.location
-            + self.review
+            + self.check_in
             + self.value
         ) / 6
         return round(avg, 2)
