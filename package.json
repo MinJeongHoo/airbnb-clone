@@ -1,0 +1,22 @@
+{
+  "name": "airbnb-clone",
+  "version": "1.0.0",
+  "description": "AriBnb 클론코딩입니다. Language : Python  FrameWork : Django",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MinJeongHoo/airbnb2-clone.git"
+  },
+  "scripts": {
+    "css": "gulp"
+  },
+  "homepage": "https://github.com/MinJeongHoo/airbnb2-clone#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-csso": "^4.0.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^5.0.0",
+    "autoprefixer": "^9.8.6",
+    "tailwindcss": "^1.9.6"
+  },
+}

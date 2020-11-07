@@ -16,6 +16,7 @@ class Conversation(core_models.TimeStampedModel):
         return " : ".join(usernames)
 
     def count_message(self):
+        print(self.messages.count())
         return self.messages.count()
 
     count_message.short_description = "Number of messages"

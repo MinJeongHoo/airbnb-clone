@@ -140,3 +140,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
 """앞에 /붙히고 절대경로로 변경"""
 MEDIA_URL = "/media/"
+
+# Email Configuration
+EMAIL_HOST = "smtp.mailgun.org"
+EMAIL_PORT = "587"
+EMAIL_HOST_USER = "brad@sandbox42bf462da10a4fc7b6880614c33c7637.mailgun.org"
+EMAIL_HOST_PASSWORD = os.environ.get("MAILGUN_PASSWORD")
+EMAIL_FROM = "noreply@sandbox42bf462da10a4fc7b6880614c33c7637.mailgun.org"
