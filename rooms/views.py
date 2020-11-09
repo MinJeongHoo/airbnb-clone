@@ -10,7 +10,7 @@ class HomeView(ListView):
     """HomewView Definition"""
 
     model = models.Room
-    paginate_by = 10
+    paginate_by = 12
     paginate_orphans = 5
     ordering = "created"
     """object list name 변경"""

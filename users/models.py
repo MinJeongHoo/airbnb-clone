@@ -5,6 +5,7 @@ from django.core.mail import send_mail
 from django.utils.html import strip_tags
 import uuid
 from django.template.loader import render_to_string
+from django.shortcuts import reverse
 
 
 class User(AbstractUser):
@@ -45,7 +46,7 @@ class User(AbstractUser):
     bio = models.TextField(blank=True)
     birthdate = models.DateField(null=True)
     language = models.CharField(
-        choices=LANGUAGE_CHOICES, max_length=2, blank=True, default=LANGUAGE_KOREAN
+        choices=LANGUAGE_CHOICES, max_length=10, blank=True, default=LANGUAGE_KOREAN
     )
     currency = models.CharField(
         choices=CURRENCY_CHOICES, max_length=3, blank=True, default=CURRENCY_KOR
@@ -58,6 +59,9 @@ class User(AbstractUser):
     login_method = models.CharField(
         max_length=50, choices=LOGIN_CHOICES, default=LOGIN_EMAIL
     )
+
+    def get_absolute_url(self):
+        return reverse("users:profile", kwargs={"pk": self.pk})
 
     def verify_email(self):
         if self.email_verified is False:

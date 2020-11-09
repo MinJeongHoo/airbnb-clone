@@ -15,8 +15,10 @@
     "gulp-csso": "^4.0.1",
     "gulp-postcss": "^9.0.0",
     "gulp-sass": "^4.1.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^5.0.0"
+  },
+  "devDependencies": {
     "autoprefixer": "^9.8.6",
     "tailwindcss": "^1.9.6"
-  },
+  }
 }
