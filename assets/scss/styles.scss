@@ -1,6 +1,5 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
 .search-box{
     transition: box-shadow .3s linear;
@@ -56,24 +55,24 @@ form{
         }
     }
 }
-@keyframes messageFadeIn{
-    0%{
-        opacity: 0;
-        transform: translate(-50px);
+@keyframes messageFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
     }
-    5%{
-        opacity: 1;
-        transform:translate(50px);
+    5% {
+      opacity: 1;
+      transform: translateY(50px);
     }
-    95%{
-        opacity: 1;
-        transform:translate(50px);
+    95% {
+      opacity: 1;
+      transform: translateY(50px);
     }
-    100%{
-        opacity: 0;
-        transform: translate(-50px);
+    100% {
+      opacity: 0;
+      transform: translateY(-50px);
     }
-}
+  }
 
 .message{
     animation: messageFadeIn 3s ease-in-out forwards;
@@ -94,3 +93,5 @@ form{
 .border-section {
     @apply border-b border-gray-400 pb-8 mt-8;
 }
+
+@tailwind utilities;
