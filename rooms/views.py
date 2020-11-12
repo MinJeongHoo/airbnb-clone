@@ -28,7 +28,6 @@ class HomeView(ListView):
 
 
 class RoomDetail(DetailView):
-
     """ RoomDetail Definitaion"""
 
     model = models.Room
