@@ -107,7 +107,6 @@ class SearchView(View):
     def get(self, request):
 
         country = request.GET.get("country")
-
         if country:
             ##request.GET하면 form정보를 기억
             form = forms.SearchForm(request.GET)
@@ -167,6 +166,7 @@ class SearchView(View):
 
 
 class EditRoomView(user_mixins.LoggedInOnlyView, UpdateView):
+
     model = models.Room
     template_name = "rooms/room_edit.html"
     fields = (
@@ -196,9 +196,9 @@ class EditRoomView(user_mixins.LoggedInOnlyView, UpdateView):
         return room
 
 
-class RoomPhotosView(user_mixins.LoggedInOnlyView, RoomDetail):
+class RoomPhotosView(user_mixins.LoggedInOnlyView, DetailView):
 
-    template_name = "room/room_photos.html"
+    template_name = "rooms/room_photos.html"
     model = models.Room
 
     def get_object(self, queryset=None):
@@ -247,3 +247,16 @@ class AddPhotoView(user_mixins.LoggedInOnlyView, FormView):
         form.save(pk)
         messages.success(self.request, "Photo Uploaded")
         return redirect(reverse("rooms:photos", kwargs={"pk": pk}))
+
+
+class CreateRoomView(user_mixins.LoggedInOnlyView, FormView):
+    form_class = forms.CreateRoomForm
+    template_name = "rooms/room_create.html"
+
+    def form_valid(self, form):
+        room = form.save(form)
+        room.host = self.request.user
+        room.save()
+        form.save_m2m()
+        messages.success(self.request, "Room Uploaded")
+        return redirect(reverse("rooms:detail", kwargs={"pk": room.pk}))

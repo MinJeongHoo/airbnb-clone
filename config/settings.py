@@ -47,7 +47,7 @@ PROJECT_APPS = [
     "reviews.apps.ReviewsConfig",
     "reservations.apps.ReservationConfig",
     "lists.apps.ListsConfig",
-    "conversation.apps.ConversationConfig",
+    "conversations.apps.ConversationsConfig",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
@@ -60,6 +60,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -151,3 +152,6 @@ EMAIL_FROM = "noreply@sandbox42bf462da10a4fc7b6880614c33c7637.mailgun.org"
 
 
 LOGIN_URL = "/users/login"
+
+# Locale
+LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)

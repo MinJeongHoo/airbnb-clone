@@ -26,21 +26,27 @@
   }
 
 input,
-textarea,
-select{
-    @apply rounded-sm py-5 font-light text-lg w-full text-left border border-gray-600 px-5 overflow-hidden truncate;
-    &:focus{
-        @apply outline-none border-teal-500;
+textarea{
+@apply rounded-sm py-5 font-light text-lg w-full text-left border border-gray-600 px-5;
+&:focus {
+    @apply outline-none border-teal-500;
     }
 }
+
 textarea{
     resize :none;
     height :100px;
 }
 
-select{
-    height:60px;
+
+select {
+@apply rounded-sm font-light text-lg w-full text-left border border-gray-600;
+height: 50px;
+&:focus {
+    @apply outline-none border-teal-500;
+    }
 }
+
 
 form{
     .input_css{
@@ -92,6 +98,13 @@ form{
 
 .border-section {
     @apply border-b border-gray-400 pb-8 mt-8;
+}
+
+.cal-grid{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-gap:10px;
+    justify-items: center;
 }
 
 @tailwind utilities;
