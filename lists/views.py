@@ -15,7 +15,7 @@ def toggle_room(request, room_pk):
         )
         if action == "add":
             the_list.rooms.add(room)
-        if action == "delete":
+        if action == "remove":
             the_list.rooms.remove(room)
     return redirect(reverse("rooms:detail", kwargs={"pk": room_pk}))
 

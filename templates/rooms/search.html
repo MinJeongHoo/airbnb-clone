@@ -9,12 +9,15 @@ Search
 {%endblock search-bar%}
 
 {% block content%}
-<h2>Search!</h2>
-
-<form method="GET" action="{% url 'rooms:search'%}">
-    {{form.as_p}}
-    <button>Search</button>
-</form>
+<div class="container mx-auto">
+    <div>
+        <h2 class="mb-16 font-bold font-black">Search!</h2>
+        <form method="GET" action="{% url 'rooms:search'%}">
+            {{form.as_p}}
+            <button>Search</button>
+        </form>
+    </div>
+</div>
 <h3>Result</h3>
 {% for room in rooms %}
 <h3>{{room.name}}</h3>
