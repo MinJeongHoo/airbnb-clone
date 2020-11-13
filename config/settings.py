@@ -25,7 +25,7 @@ SECRET_KEY = "lpe3i#j-&od)&&2dgtnwl=qp9usczh&zaf_(2r(q3*2sx3g94f"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get("DEBUG"))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".elasticbeanstalk.com"]
 
 
 # Application definition
@@ -98,7 +98,7 @@ else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": "airbnb-clone",
+            "NAME": "postgres",
             "PASSWORD": "M13254687!",
             "PORT": "5432",
             "USER": "postgres",
