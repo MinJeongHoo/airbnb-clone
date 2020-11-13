@@ -118,7 +118,7 @@ media/
 #Mac
 .DS_Store
 uploads/
-node_moduels/
+node_modules/
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
