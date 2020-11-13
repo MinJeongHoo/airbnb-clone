@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "lpe3i#j-&od)&&2dgtnwl=qp9usczh&zaf_(2r(q3*2sx3g94f"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = bool(os.environ.get("DEBUG"))
 
 ALLOWED_HOSTS = [".elasticbeanstalk.com", "127.0.0.1", "jaymin.pythonanywhere.com"]
 
@@ -87,24 +87,24 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# if DEBUG:
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+if DEBUG:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        }
     }
-}
-# else:
-#     DATABASES = {
-#         "default": {
-#             "ENGINE": "django.db.backends.postgresql",
-#             "NAME": "postgres",
-#             "PASSWORD": "M13254687!",
-#             "PORT": "5432",
-#             "USER": "postgres",
-#             "HOST": "airbnb-clone.ctqzghdywcjn.ap-northeast-2.rds.amazonaws.com",
-#         }
-#     }
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "postgres",
+            "PASSWORD": "M13254687!",
+            "PORT": "5432",
+            "USER": "postgres",
+            "HOST": "airbnb-clone.ctqzghdywcjn.ap-northeast-2.rds.amazonaws.com",
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -146,7 +146,7 @@ STATIC_URL = "/static/"
 
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = os.path.join(BASE_DIR, "static")
 AUTH_USER_MODEL = "users.User"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
