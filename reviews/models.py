@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from core import models as core_models
-from django.utils import timezone
 
 
 class Review(core_models.TimeStampedModel):
@@ -20,9 +19,7 @@ class Review(core_models.TimeStampedModel):
     location = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
-    check_in = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)]
-    )
+    check_in = models.TimeField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     value = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     user = models.ForeignKey(
         "users.User", related_name="reviews", on_delete=models.CASCADE
