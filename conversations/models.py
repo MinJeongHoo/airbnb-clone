@@ -8,7 +8,7 @@ from core import models as core_models
 class Conversation(core_models.TimeStampedModel):
 
     participants = models.ManyToManyField(
-        "users.User", blank=True, related_name="converstation"
+        "users.User", blank=True, related_name="conversation"
     )
 
     def __str__(self):
