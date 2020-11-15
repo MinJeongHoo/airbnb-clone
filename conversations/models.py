@@ -7,7 +7,9 @@ from core import models as core_models
 
 class Conversation(core_models.TimeStampedModel):
 
-    participants = models.ManyToManyField("users.User", blank=True)
+    participants = models.ManyToManyField(
+        "users.User", blank=True, related_name="converstation"
+    )
 
     def __str__(self):
         usernames = []
@@ -16,7 +18,6 @@ class Conversation(core_models.TimeStampedModel):
         return " : ".join(usernames)
 
     def count_message(self):
-        print(self.messages.count())
         return self.messages.count()
 
     count_message.short_description = "Number of messages"
