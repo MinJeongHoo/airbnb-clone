@@ -25,8 +25,8 @@ class Command(BaseCommand):
             number,
             {
                 "accuracy": lambda x: random.randint(0, 6),
-                "communitcation": lambda x: random.randint(0, 6),
-                "cleanlines": lambda x: random.randint(0, 6),
+                "communication": lambda x: random.randint(0, 6),
+                "cleanliness": lambda x: random.randint(0, 6),
                 "location": lambda x: random.randint(0, 6),
                 "check_in": lambda x: random.randint(0, 6),
                 "value": lambda x: random.randint(0, 6),
