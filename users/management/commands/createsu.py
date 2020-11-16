@@ -3,11 +3,6 @@ from users.models import User
 
 
 class Command(BaseCommand):
-
-    help = "This command creates many superuser"
-
-  class Command(BaseCommand):
-    
     help = "This command creates superuser"
 
     def handle(self, *args, **options):
